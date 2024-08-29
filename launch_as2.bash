@@ -8,11 +8,12 @@ usage() {
     echo "      -r: record rosbag"
     echo "      -t: launch keyboard teleoperation"
     echo "      -n: drone namespace, default is cf0"
+    echo "      -w: world file"
     echo "      -a: auto run mission"
 }
 
 # Arg parser
-while getopts "se:mrtna" opt; do
+while getopts "se:mrtnaw:" opt; do
   case ${opt} in
     s )
       simulated="true"
@@ -31,6 +32,9 @@ while getopts "se:mrtna" opt; do
       ;;
     n )
       drone_namespace="${OPTARG}"
+      ;;
+    w )
+      world_file="${OPTARG}"
       ;;
     a )
       auto_run="true"
@@ -69,14 +73,18 @@ record_rosbag=${record_rosbag:="false"}
 launch_keyboard_teleop=${launch_keyboard_teleop:="false"}
 drone_namespace=${drone_namespace:="cf"}
 auto_run=${auto_run:="false"}
+world_file=${world_file:="sim_config/world.json"}
 
 if [[ ${swarm} == "true" ]]; then
   num_drones=2
   simulation_config="sim_config/world_swarm.json"
 else
   num_drones=1
-  simulation_config="sim_config/world.json"
+  simulation_config="${world_file}"
 fi
+
+export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:"$(pwd)/models"
+export IGN_GAZEBO_RESOURCE_PATH=$IGN_GAZEBO_RESOURCE_PATH:"$(pwd)/models"
 
 # Generate the list of drone namespaces
 drone_ns=()

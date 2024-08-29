@@ -18,119 +18,124 @@
             "payload": [
                 {
                     "model_name": "hd_camera",
-                    "model_type": "hd_camera"
+                    "model_type": "hd_camera",
+                    "rpy": [0.0, 1.58, 0.0]
                 }
             ]
         }
     ],
     "objects": [
         {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_0",
+            "model_type": "aruco_id14_marker",
+            "model_name": "id14_1",
             "xyz": [
-                -1.5,
+                -1.0,
                 0.0,
-                1.2
+                0.01
             ],
             "rpy": [
                 0,
-                1.57,
-                0
-            ],
-            "object_bridges": [
-                "pose"
-            ],
-            "tf_broadcaster": true
-        },
-        {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_1",
-            "xyz": [
-                2.0,
-                -1.0,
-                1.6
-            ],
-            "rpy": [
                 0,
-                1.57,
-                3.14
-            ],
-            "object_bridges": [
-                "pose"
-            ],
-            "tf_broadcaster": true
-        },
-        {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_2",
-            "xyz": [
-                2.5,
-                1.5,
-                0.8
-            ],
-            "rpy": [
-                0.83,
-                1.57,
                 0
-            ],
-            "object_bridges": [
-                "pose"
-            ],
-            "tf_broadcaster": true
+            ]
         },
         {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_3",
+            "model_type": "aruco_id24_marker",
+            "model_name": "id24_1",
             "xyz": [
-                1,
-                2.5,
-                1.4
-            ],
-            "rpy": [
-                1.2,
-                1.57,
-                3.14
-            ],
-            "object_bridges": [
-                "pose"
-            ],
-            "tf_broadcaster": true
-        },
-        {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_4",
-            "xyz": [
-                1,
-                -2.5,
-                1.0
-            ],
-            "rpy": [
-                0.2,
-                -1.57,
-                0.4
-            ],
-            "object_bridges": [
-                "pose"
-            ],
-            "tf_broadcaster": true
-        },
-        {
-            "model_type": "pollibee_flower",
-            "model_name": "flower_5",
-            "xyz": [
-                -1.0,
                 -2.0,
-                1.0
+                0.0,
+                0.01
             ],
             "rpy": [
-                1.57,
-                1.57,
-                2.0
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id34_marker",
+            "model_name": "id34_1",
+            "xyz": [
+                -3.0,
+                0.0,
+                0.01
             ],
-            "object_bridges": [
-                "pose"
+            "rpy": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id44_marker",
+            "model_name": "id44_1",
+            "xyz": [
+                -4.0,
+                0.0,
+                0.01
             ],
-            "tf_broadcaster": true
+            "rpy": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id54_marker",
+            "model_name": "id54_1",
+            "xyz": [
+                -5.0,
+                0.0,
+                0.01
+            ],
+            "rpy": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id64_marker",
+            "model_name": "id64_1",
+            "xyz": [
+                -6.0,
+                0.0,
+                0.01
+            ],
+            "rpy": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id74_marker",
+            "model_name": "id74_1",
+            "xyz": [
+                -7.0,
+                0.0,
+                0.01
+            ],
+            "rpy": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "model_type": "aruco_id84_marker",
+            "model_name": "id84_1",
+            "xyz": [
+                -8.0,
+                0.0,
+                0.01
+            ],
+            "rpy": [
+                0,
+                0,
+                0
+            ]
         }
     ]
 }
