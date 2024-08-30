@@ -1,7 +1,13 @@
+# Installation the ARUCO Project
 
-# Installation
+This page goes over how you run this example aruco project
+
+[TOC]
+
+## Installation
 
 There are three ways you can run this project depending on your situation or operating system. 
+
 - Linux: All 3 ways will work
 - Windows: Docker and Docker with VNC
 - Max OSX: Docker with VNC
@@ -12,7 +18,7 @@ See Documentation for detailed instructions
 
 ### Local
 
-Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions. See (these instructions for installation)[#Environment-Installation]
+Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions. See [these instructions for installation](#Environment-Installation)
 
 
 #### Setup and build Aerostack2 (we use version 1.1.2)
@@ -140,8 +146,6 @@ cd /ros2/project_gazebo_aruco
 
 
 
-
-
 ## Environment Installation
 
 > This section applies if you are trying to setup from scratch
@@ -222,99 +226,3 @@ You can check succesful installation by using the `ign` cli command
 
 With these three installed, you should be ready to run the pollibees project, see [the above instrctions to continue](#pollibee-project-1)
 
-## Usage
-
-### Running Crazyflie Simulation
-
-The initial usage example follows the [aerostack2 crazyflie tutorials which are here](https://aerostack2.github.io/_02_examples/crazyflie/index.html). It would be recommended to have a look through the aerostack2 docs, but to get the simulation up you can run the following.
-
-Make sure you have followed the aerostack2 and project pollibee build instructions, then source the relevant files and go into the project pollibee folder
-```
-source /opt/ros/humble/setup.bash # You don't need to run if its already in your ~/.bashrc
-source ~/aerostack2_ws/install/setup.bash # You don't need to run if its already in your ~/.bashrc
-```
-```
-cd ~/aerostack2_ws/src/project_pollibee
-```
-
-In the project there is a core run file written in bash, for basic tasks this avoids the user having to remember lots of ros2 commands. See the tutorial for more info and more options, but to spin up a single drone run:
-
-```
-./launch_as2.bash -s
-```
-
-This will startup a tmux session with multiple tabs to startup the different ROS elements. Tmux is one way to run multiple things at the same time. Each tab is essentially the same as running another terminal window and uses your bash configuration and home directory. (It's not in its own container or anything like that). 
-
-> Selecting your terminal window, you can scroll through the different tabs by pressing `ctrl+b` then a number 0 to 5. The initial terminal window you can input stuff in is tab 5. This is useful if things arent working properly and you want to see what's going on, debug messages etc. 
-
-In the tmux tab that first pops up (tab number 5) you can run the mission using
-
-```
-python3 pollibee.py -s
-```
-
-> Note: `./launch_as2.bash -sa`, the `a` option will automatically run `mission.py`. 
-
-And follow the instructions on screen. With any luck the crazyflie (its really small you might have to zoom into gazebo) will takeoff and do something. 
-
-> Note: as of 10/03/2024 the crazyflie model has not been properly tuned. If it's not flying properly, change the file `sim_config/world.json` line 5 (`model_type`) to use `quadrotor_base` instead of crazyflie and it will use one of aerostack2 internal quadcopter models for now. 
-
-> Note: If you have a non-terminating program you can use Ctrl+C to stop the current program
-
-In this terminal you can also run ROS2 introspection using the ros2 cli tools such as 
-```bash
-# Introspect current state
-ros2 topic list
-ros2 service list
-ros2 action list
-
-# Interact with ros2 streams
-ros2 topic pub <topic name> <topic_type> <topic payload in yaml format>
-...
-ros2 --help
-```
-As well as run any extra scripts etc. 
-
-**IMPORTANT** To stop your simulation and get out of the tmux environment you must run the stop.bash file in the project_pollibots directory.
-```
-./stop.bash 
-```
-This can be run both inside tmux, and in any terminal in the right directory and performs a clean exit of the simulation. 
-
-**YOU SHOULD ALWAYS USE THIS COMMAND TO STOP THE SIMULATION**. 
-
-Closing Gazbo directly won't stop the simulation. Make sure you do not have more than one simulation going at the same time! 
-
-### Developing The Application
-
-First check whether you need to git pull from the main repository. And check that your aerostack2 repo is in the `robee` branch (`git branch -l`).
-
-The primary file defining the mission is `mission.py`. 
-
-Aerostack2 provides a really handy python api for abstracting out interacting with the vehicles through code (`DroneInterface`).
-
-We will want to update it to basically do what we want! 
-
-> Note that they have a distinction between the vehicles in the arena and the objects in the arena. 
-
-The `sim_config` folder contains all of the configuration files for running the simulation. The main one is `world.json` which defines what is spawned into the world and where. 
-
-> New models must be setup and placed within the `aerostack2/as2_simulation_assets/as2_gazebo_assets/models` and then `as2 build` to install them. There should exist the `pollibee_flower` object which can be selected as `model_type`
-
-The other configurations are for the different modules and plugins which perform the interaction of the drone and simualtor/real world. 
-
-For visualisation, we can use Foxglove Studio - download the local one [here](https://foxglove.dev/download). You will need to install the bridge:
-```
-sudo apt-get install ros-humble-foxglove-bridge
-```
-You can run it as a standalone application.
-You can then import the layout `foxglove_layout.json` using [these instructions](https://docs.foxglove.dev/docs/visualization/layouts/#import-and-export). 
-Then when the simulator is started using `./launch_as2.bash`, the foxglove-bridge will also autostart and autoconnect to the default connection of `ws:/localhost:8765`
-
-### Real Crazyflies
-
-> **THIS HAS NOT BEEN TRIED YET** 
-
-See the instructions in the [orignal project](https://aerostack2.github.io/_02_examples/crazyflie/project_crazyflie_gates/index.html#real-execution)
-
-Please write up instructions when we have worked them out. 

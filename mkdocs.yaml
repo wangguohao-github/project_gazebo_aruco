@@ -21,12 +21,19 @@ plugins:
 nav:
   - Building Drone:
     - "Introduction to Drones": "drone/drone_basics.md"
+    - "QAV250 Build Guide": "drone/build_qav250_exercise.md"
+    - "QAV250 Build Guide (full)": "drone/build_qav250_guide.md"
   - Simulation: 
-    - "Installation": "simulation/installation.md"
+    - "A Brief Introduction to Linux": 'simulation/intro_to_linux.md'
+    - "Intro to ROS2 and UAVs": "simulation/intro_ros2_uav.md"
+    - "Project Installation": "simulation/installation.md"
+    - "Example Scenario": ""
   - Autonomy:
-    - "something else"
+    - "Programming the Drone": ""
+    - "Detecting Aruco Tags": ""
   - Real Flight:
     - "something"
+    
   # - "Tutorials":
   #   - "1. A Brief Introduction to Linux": 'tutorials/intro_to_linux.md'
   #   - "2. Starling and Docker": "tutorials/starling_docker.md"

@@ -3,3 +3,4 @@ rosbags/*
 */__pycache__
 */rosbags
 __pycache__/*
+site/*
