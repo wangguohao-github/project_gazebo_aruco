@@ -8,7 +8,7 @@ This project is based on aerostack2 drone flying framework which uses ROS2 but h
 
 There are three ways you can run this project depending on your situation or operating system. 
 - Linux: All 3 ways will work
-- Windows: Docker and Docker with VNC
+- Windows: Docker and Docker with VNC (You will need the WSL2 backend)
 - Max OSX: Docker with VNC
 
 Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
@@ -103,7 +103,7 @@ cd /ros2/project_gazebo_aruco
 
 ## Contact
 
-This project is developed by Mickey Li - (email)[mickey.li@ucl.ac.uk]
+This project is developed by Mickey Li - [email](mickey.li@ucl.ac.uk)
 
 ## License
 
