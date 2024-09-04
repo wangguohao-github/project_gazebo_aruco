@@ -22,15 +22,15 @@ nav:
   - Building Drone:
     - "Introduction to Drones": "drone/drone_basics.md"
     - "QAV250 Build Guide": "drone/build_qav250_exercise.md"
-    - "QAV250 Build Guide (full)": "drone/build_qav250_guide.md"
+    # - "QAV250 Build Guide (full)": "drone/build_qav250_guide.md"
   - Simulation: 
     - "A Brief Introduction to Linux": 'simulation/intro_to_linux.md'
     - "Intro to ROS2 and UAVs": "simulation/intro_ros2_uav.md"
     - "Project Installation": "simulation/installation.md"
-    - "Example Scenario": ""
+    - "Example Scenario": "simulation/example.md"
   - Autonomy:
     - "Programming the Drone": ""
-    - "Detecting Aruco Tags": ""
+    # - "Detecting Aruco Tags": ""
   - Real Flight:
     - "something"
     

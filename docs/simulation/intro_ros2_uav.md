@@ -1,24 +1,10 @@
 # An Introduction to ROS2 and UAV Control
 
-This tutorial gives a brief overview and background on UAV Control and ROS2. By the end you should have a brief understanding of how a UAV is controlled, how Starling treats a UAV and why and how we use ROS2 to communicate with a UAV.
+This tutorial gives a brief overview and background on UAV Control and ROS2. By the end you should have a brief understanding of how a UAV is controlled, how drone systems treat a UAV and why and how we use ROS2 to communicate with a UAV.
 
 [TOC]
 
 ## A Brief Introduction to UAV Control
-
-### What is a UAV or a Drone
-
-A drone or unmanned aerial vehicle (UAV) is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
-
-Drones are used for many consumer, industrial, government and military applications (opens new window). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
-
-> Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
-
-The "brain" of the drone is called an *autopilot*. It consists of flight stack software running on vehicle controller ("flight controller") hardware.
-
-A *multi-rotor* is a specific type of UAV which uses two of more lift-generating rotors to fly. One of the most common will be the Quadrotor which has 4 motors in an 'X' pattern. These UAVs provide much simpler flight control than other types of aerial vehicle. This tutorial focuses on the flight of a simple quadrotor, but Starling can be used to operate many different types of robot.
-
-> From this point on in this tutorial, 'drone' or 'UAV' will refer to a multi-rotor UAV unless otherwise stated.
 
 ### How do you control a UAV
 
@@ -50,6 +36,8 @@ There is no universal controller design of converting from user inputs to motor 
 
 The two current most common autopilot firmware's in use in research settings are [Ardupilot](https://ardupilot.org/copter/index.html) which offers the Arducopter firmware, and [PX4](https://px4.io/) which offers Multicopter firmware. Both these firmwares are very extensive and cover numerous use cases. However, for our purposes we will only cover enabling autonomous flight through observing the *mode* of the autpilot.
 
+Note that other autopilots such as [Betaflight](https://betaflight.com/), [INAV](https://github.com/iNavFlight/inav) and others used for other use cases. 
+
 Both Ardupilot and PX4 use the concept of flight modes, where each mode operates a supports different levels or types of flight stabilisation and/or autonomous functions. Traditionally this is for pilots to change between different controller layouts for different applications. It's necessary to change to the correct mode for safe and controllable flight. The following table shows the most often used flight modes within Starling.
 
 | [Ardupilot Mode](https://ardupilot.org/copter/docs/flight-modes.html) 	| [PX4 Mode](https://docs.px4.io/v1.12/en/getting_started/flight_modes.html)  	| Functionality                                                                                 	|
@@ -62,17 +50,17 @@ Both Ardupilot and PX4 use the concept of flight modes, where each mode operates
 
 > Our controllers will all ask the autopilot to switch into guided or offboard mode in order to control from the companion computer. Often they have safety elements build in which mean that the autopilot must receive instructions at a certain rate (2Hz) otherwise the autopilot will switch to loiter or land.
 
-As mentioned before, the firmware provides a given cascading PID controller for converting high level commands to motor thrusts. As a controller developer, it is also useful to understand the differences between the Ardupilot and PX4 controllers and what real world impacts that has. Thankfully in most of Starling's targeted applications we only require position control which works fairly consistently between the two firmwares.
+As mentioned before, the firmware provides a given cascading PID controller for converting high level commands to motor thrusts. As a controller developer, it is also useful to understand the differences between the Ardupilot and PX4 controllers and what real world impacts that has. 
 
-In our own work, it has generally been noted that Ardupilot seems to be more suitable for outdoor flight, and PX4 for indoor flight. For this tutorial we will be developing a controller for indoor multi-vehicle flight and so we will assume the use of PX4.
+In our own work, it has generally been noted that Ardupilot seems to be more suitable for outdoor flight, and PX4 for indoor flight. For this tutorial we will be developing a controller for indoor flight and so we will assume the use of PX4.
 
-If interested in outdoor flight with Ardupilot, check out [this tutorial](https://github.com/StarlingUAS/fenswood_volcano_template) which uses Starling with Ardupilot to simulate outdoor drone flight over a volcano.
+### MAVLink, XRCEDDS and Autopilot communication
 
-### MAVLink and Autopilot communication
-
-Once in guided or offboard mode, the autopilot expects communications using the [MAVLINK protocol](https://mavlink.io/en/messages/common.html). Traditionally this would have been used for a ground control station (GCS) to send commands to a UAV over a telemetry link. However, now it has also developed into a protocol for commanding the autopilot from an onboard companion computer over a USB or serial connection too. In Starling, both methods of communication between GCS or companion computer are supported.
+Once in guided or offboard mode, the autopilot expects communications using one of two protocls. The first traditional method is via the [MAVLINK protocol](https://mavlink.io/en/messages/common.html). Traditionally this would have been used for a ground control station (GCS) to send commands to a UAV over a telemetry link. However, now it has also developed into a protocol for commanding the autopilot from an onboard companion computer over a USB or serial connection too. 
 
 The MAVLink protocol is a set of preset commands which compatible firmwares understand and react to. However, it is often verbose and not-intuitive to develop applications with, as well as requiring a lot of prior knowledge about the state of the system. For example, it is neccesary to send a number of specific messages in order to receive individual data streams on vehicle status, location, global location and so on. These are often missed and cause lots of headaches for developers. Starling aims to streamline this through the use of the Robot Operating System so users no longer need to interact with MAVLink and the autopilot directly.
+
+However in recent years, autopilot developers have noticed this growing trend of autopilots communicating directly with companion computers through mavlink, and have seen its issues. Therefore a new protocol has been developed specifically for interfacing with ROS called XRCE-DDS. This new protocol is directly compatible with ROS and doesnt require any translation, serialisation or deserialisation between the two systems, greatly improving efficiency and enabling higher frequency control. 
 
 ## A Brief Introduction to ROS
 
@@ -166,6 +154,8 @@ The bottom half of this shows how topics get sent from a publisher to a subscrib
 
 Interestingly, if you put two topics together, you get some notion of two way communication. This is the basis of a **service** which can be seen in the top of the diagram. A **service** is made of a Request topic and a Response topic, but functions as a single communication type to the user. Similar to messages, a service has a defined request and response types (e.g. see [`std_srvs/srv/SetBool.srv`](https://github.com/ros2/common_interfaces/blob/master/std_srvs/srv/SetBool.srv)).  A service request will often wait until a response is received before continuing.
 
+Then if you combine two services and a topic, you can imitate a request for something which takes time. This in ROS is known as an **action**. For example requesting a robot to move from one location to another. You first request the move, which you get a response as to whether its started. This is followed by constant feedback along a particular topic. Then ended with a task complete service response. In this a whole set of messages are defined.  
+
 Note that everything happens asyncronously and in parallel, when a node subscribes or sends a requests, it doesn't know when the response will arrive. It only knows it will (hopefully) arrive at some point. When a packet is received the subscriber can then run a method - this method is usually known as a **callback**, but that will be covered in a later tutorial.
 
 Finally, each node is configured by a set of **parameters** which are broadcast to all other nodes. Parameters are often configuration values for particular methods in a node, and can sometimes be changed on startup (or dynamically through a service), to allow the node to provide adjustable functionality. For example the value of a timeout or frequency of a loop.
@@ -177,21 +167,32 @@ So in summary, the key concepts and terminology are:
 - **Publishers and Subscribers**
 - **Messages**
 - **Services**
+- **Actions**
 - **Parameters**
 
-### ROS2 for Starling
+### ROS2 vs ROS1
 
 There are 2 versions of ROS: ROS1 and ROS2. ROS1, initially created in 2007 by Willow Garage, has become huge among the open source robotics community. However over the years they realised that there are a number of important features which are missing - and adding all of these would simply break ROS1. Also the most recent ROS1 distribution (ROS Noetic) is soon to reach the end of its supported life (EOL 2025) with no more ROS1 there after! (See [this article](https://roboticsbackend.com/ros1-vs-ros2-practical-overview/#Why_ROS2_and_not_keep_ROS1) for more details!)
 
-Therefore, to future proof the system, and to ensure all users get a well rounded experience that will hopefully translate to industry experience, Starling has been implemented in ROS2. Specifically, Starling uses the **Foxy Fitzroy** Long Term Support (LTS) distribution throughout.
+Therefore, to future proof the system, and to ensure all users get a well rounded experience that will hopefully translate to industry experience, Starling has been implemented in ROS2. Specifically, this tutorial uses the **Humble Hawksbill** (AKA Humble) Long Term Support (LTS) distribution throughout.
 
 There are some interesting changes between ROS1 and ROS2, but the core elements described above remain identical. For those interested, ROS2 follows a much more decentralised paradigm, and does not require a central ROSnode as it uses the distributed DDS communication protocol for its internal communication. All nodes therefore broadcast their own topics allowing for easy decentralised discovery - perfect for multi-robot applications.
 
 > **Note:** Main thing to be aware of is if you are debugging and searching for ROS questions on the internet, be aware that there are many existing questions for ROS1 which will no longer apply for ROS2.
 
-### MAVLINK and ROS with MAVROS
+### Communicating between ROS2 and Drones
 
-Coming back round to flying drones, we mentioned in [](#mavlink-and-autopilot-communication) that we wanted to use ROS to avoid having to manually communicate with the autopilot using MAVLINK. Starling uses the [**MAVROS** ROS package](http://wiki.ros.org/mavros) to do exactly that.
+Coming back round to flying drones, we mentioned earlier that we want ROS to communicate with the autopilot in the most straightforward way possible. Ideally communicate in a way that provides a consistent (ROS) intface with which we can build controllers against! 
+
+#### XRCE-DDS and ROS 
+
+PX4 can use the uXRCE-DDS middleware to allow the internal uORB messages to be published and subscribed on a companion computer as though they were ROS 2 topics. This provides a fast and reliable integration between PX4 and ROS 2, and makes it much easier for ROS 2 applications to get vehicle information and send commands.
+
+Essentially on the host computer side (companion computer or laptop), you connect up a telemetry port into the USB and you can run the XRCE-DDS-Agent. This translates all of the available vehicle messages into useable ros2 topics which can be viewer and browsed. 
+
+#### MAVLINK and ROS with MAVROS
+
+For referece, we also include a little bit about MAVROS here as internet searches may still include a number of discussions regarding MAVLINK and MAVROS. While less used now, it is still a robust method for communicating with MAVLINK enabled systems, and enables a user to tap into the existing MAVLINK ecosystem. This will sill be the primary method when interfacing with Ardupilot for example. 
 
 For the autpilot, it automatically sets up a connection and translates higher level ROS commands into MAVLINK commands.
 
@@ -212,6 +213,6 @@ As we are now utilising ROS, this allows us to make the most of the full ROS eco
 
 ## Next Steps
 
-Hopefully now you have a basic understanding of what a drone is and how they are controlled, the function and purpose of an autopilot, as well as how ROS functions can be used. If you want some early hands on experience with ROS before delving further into Starling, we highly recommend the [offical ros2 tutorials](https://docs.ros.org/en/foxy/Tutorials.html).
+Hopefully now you have a basic understanding of what a drone is and how they are controlled, the function and purpose of an autopilot, as well as how ROS functions can be used. If you want some early hands on experience with ROS before delving further into drone work, we highly recommend the [offical ros2 tutorials](https://docs.ros.org/en/humble/Tutorials.html).
 
-We have one more theory topic before you can start creating your own Starling projects, where we will be discussing how Starling uses and encapsulates ROS functionality.
+Just to introduce it here, whilst we now have the ability to interface and send data and commands to the drone. We probably need a lot of the higher level functionality in order to properly fly the drone. That is where frameworks such as [Aerostack2](https://aerostack2.github.io/) come into play. We will discuss this in the followin tutorials.

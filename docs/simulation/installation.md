@@ -222,7 +222,6 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-
 sudo apt-get update
 sudo apt-get install ignition-fortress
 ```
-You can check succesful installation by using the `ign` cli command
+You can check succesful installation by using the `ign` cli command or `gz` cli command
 
-With these three installed, you should be ready to run the pollibees project, see [the above instrctions to continue](#pollibee-project-1)
-
+With these three installed, you should be ready to run the sample gazebo aruco simulation
