@@ -3,6 +3,7 @@
 usage() {
     echo "  options:"
     echo "      -s: simulated, choices: [true | false]"
+    echo "      -v: visualisation (rviz2), choices: [true | false]"
     echo "      -m: multi agent, choices: [true | false]"
     echo "      -e: estimator_type, choices: [ground_truth, raw_odometry, mocap_pose]"
     echo "      -r: record rosbag"
@@ -13,10 +14,13 @@ usage() {
 }
 
 # Arg parser
-while getopts "se:mrtnaw:" opt; do
+while getopts "sve:mrtnaw:" opt; do
   case ${opt} in
     s )
       simulated="true"
+      ;;
+    v )
+      visualise="true"
       ;;
     m )
       swarm="true"
@@ -68,6 +72,7 @@ if [[ ${simulated} == "false" && -z ${estimator_plugin} ]]; then
 fi
 
 swarm=${swarm:="false"}
+visualise=${visualise:="false"}
 estimator_plugin=${estimator_plugin:="ground_truth"}  # default ign_gz
 record_rosbag=${record_rosbag:="false"}
 launch_keyboard_teleop=${launch_keyboard_teleop:="false"}
@@ -121,6 +126,11 @@ fi
 
 if [[ ${simulated} == "true" ]]; then
   tmuxinator start -n gazebo -p utils/gazebo.yml simulation_config=${simulation_config} &
+  wait
+fi
+
+if [[ ${visualise} == "true" ]]; then
+  tmuxinator start -n viz -p utils/visualisation.yml &
   wait
 fi
 

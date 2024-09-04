@@ -1,0 +1,8 @@
+attach: true
+root: ./
+startup_window: viz
+windows:
+  - mocap:
+      layout:
+      panes:
+        - rviz2 -d rviz/rviz2_config.rviz

@@ -67,7 +67,7 @@ windows:
   - behaviors:
       layout:
       panes:
-        - ros2 launch as2_behaviors_motion composable_motion_behaviors.launch.py
+        - ros2 launch as2_behaviors_motion motion_behaviors_launch.py
             namespace:=<%= drone_namespace %>
             use_sim_time:=<%= simulation %>
             follow_path_config_file:=<%= config_path %>/follow_path_config_file.yaml
@@ -78,7 +78,7 @@ windows:
             takeoff_plugin_name:=takeoff_plugin_<%= behavior_type %>
             land_config_file:=<%= config_path %>/land_config_file.yaml
             land_plugin_name:=land_plugin_speed
-        - ros2 launch as2_behaviors_motion composable_follow_reference.launch.py
+        - ros2 launch as2_behaviors_motion follow_reference_behavior_launch.py
             namespace:=<%= drone_namespace %>
             use_sim_time:=<%= simulation %>
         <%- if behavior_type == "trajectory" %>
