@@ -123,7 +123,7 @@ The pi will be both powered and connected to the FC via its GPIO (general purpos
 
 ### Attaching the rangefinder
 
-We have also included the VL530L1X rangefinder sensor - this uses a light or infrared beam to work out the distance to an object. In our case we will be mounting it to the bottom of our drone to tell us its height. 
+We have also included the VL53L1X rangefinder sensor - this uses a light or infrared beam to work out the distance to an object. In our case we will be mounting it to the bottom of our drone to tell us its height. 
 
 Use some of the leftover tape to stick it to the underside towards the front, under the video transmitter unit. This will need to plug into the FC, but have a think of where it might go as a sensor! 
 
