@@ -15,6 +15,8 @@ There are three ways you can run this project depending on your situation or ope
 
 Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
 
+> **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
 See Documentation for detailed instructions
 
 ### Local
@@ -89,6 +91,8 @@ This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortres
 ```
 
 After building for a while, this will say that it has started the VNC server
+
+> Note: The first time you build it it may time out. Run the command again and it should comeplete the build. 
 
 Go into a browser and navigate to `https://127.0.0.1:6080` and press `connect`. This will drop you into an ubunut22.04 desktop environment with all the things you need! 
 
