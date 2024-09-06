@@ -9,7 +9,7 @@ $PROJECT_DIR = Join-Path $SCRIPT_DIR ".."
 Write-Output "SCRIPT DIR IS: $SCRIPT_DIR"
 
 # Build the Docker image
-docker build -t ros2:humble_aerostack2_vnc --shm-size=512m - < "$SCRIPT_DIR\Dockerfile.VNC"
+docker build -t ros2:humble_aerostack2_vnc --shm-size=512m "$SCRIPT_DIR\Dockerfile.VNC"
 
 # Run the Docker container with the specified options
 docker run -it --rm --gpus=all --runtime=nvidia `
