@@ -75,6 +75,7 @@ git clone https://github.com/ucl-delta/project_gazebo_aruco.git
 Run the example using 
 
 ```
+cd /ros2/project_gazebo_aruco
 ./launch_as2.bash -s -t
 ```
 
@@ -151,6 +152,8 @@ cd /ros2/project_gazebo_aruco
 > This section applies if you are trying to setup from scratch
 
 This project relies on ROS2 Humble (End-of-life 2027), Ignition Gazebo Fortress, and Ubuntu 22.04. This section goes over how to install these elements. 
+
+> You may want to refer to the [Intro To Linux Tutorial](intro_to_linux.md) to setup some of the dependencies.
 
 #### Installing Ubuntu 22.04
 

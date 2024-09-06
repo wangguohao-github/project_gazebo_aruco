@@ -28,11 +28,11 @@ nav:
     - "Intro to ROS2 and UAVs": "simulation/intro_ros2_uav.md"
     - "Project Installation": "simulation/installation.md"
     - "Example Scenario": "simulation/example.md"
-  - Autonomy:
-    - "Programming the Drone": ""
+  # - Autonomy:
+  #   - "Programming the Drone": ""
     # - "Detecting Aruco Tags": ""
-  - Real Flight:
-    - "something"
+  # - Real Flight:
+  #   - "something"
     
   # - "Tutorials":
   #   - "1. A Brief Introduction to Linux": 'tutorials/intro_to_linux.md'
