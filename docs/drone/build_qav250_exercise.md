@@ -19,13 +19,11 @@ Resources:
 
 - [PX4 QAV250 Build Guide (OLD)](https://docs.px4.io/v1.14/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html)
 
-
-
 ### Build Instruction Sheet
 
 The Pdf link of the instruction sheet printed out on the table
 
-[Picture of the instruction sheet]()
+![Picture of the instruction sheet](images/build_sheet.png)
 
 > It is recommended that you don't put the top plate on until you are sure everything is up and ready to fly
 
@@ -39,7 +37,7 @@ The main board is what is known as the power distribution board and is responsib
 
 Each of the four legs contains what is known as the electronic speed controller (ESC). The ESC manages the speed (current draw) of the motor using an input signal from the flight controller. The input signal is often a specific PWM aka pulse width modulation signal. The cables here are rather thick to enable the high current that is required to power the motors. This is a key component in flight. The signal cables plug into the back of the FC in slots 1,2,3 and 4. 
 
-[Insert picture of the ESC]()
+![Insert picture of the ESC]()
 
 > Note: Watch the orientation of the ESCs when you attach them, they are soldered in such a way that two of them are intentionally upside down when laid flat. 
 
@@ -47,7 +45,7 @@ Each of the four legs contains what is known as the electronic speed controller 
 
 The final component attached by the thin red and black wires are a video transmitter powering module. This is a second module used to transmit video data in analogue but low latency manner to a receiver. Here is a link to the device, work out how the video transmission is powered! 
 
-[Insert picture and link to the specifc device]()
+![Insert picture and link to the specifc device](images/osd.png)
 
 > Note: that one of the connectors is shown to connect to the flight controller. We are replacing this connection with a connection from the FC to an onboard computer instead. 
 
@@ -59,17 +57,17 @@ Hopefully you have a good idea of where the motors are meant to go! Try and inst
 
 We have printed some propellor guards for the drone, these go under the arm using the same mounting points as the motors. You will need the m3x8mm bolts. Ensure that they are securely fastened
 
-[Inser picture of prop guard attachment point]()
+![Inser picture of prop guard attachment point]()
 
 We have also printed off some longer landing legs for the drone too to accomodate the companion computer underneath. Attach those with appropriate bolts and nylock nuts too.
 
-[Insert picture of leg attachment point]()
+![Insert picture of leg attachment point]()
 
 > **DO NOT INSTALL THE PROPELLORS YET**
 
 The motors should plug into the ESCs in a sraightforward manner with left cable going to left banana plug, center to center and right to right. 
 
-[Insert picture of motor]()
+![Insert picture of motor]()
 
 Compare your setup with the example drone before you use a ziptie to fix down the ESC. 
 
@@ -79,7 +77,7 @@ The QAV250 uses the Pixhawk 6C Flight controller. This is essentially a small co
 
 The 6C has a number of ports on all sides of the drone - read a bit about it on the docs to work out what each one is for! 
 
-[Picture of the Pixhawk 6C Flight Controller]()
+![Picture of the Pixhawk 6C Flight Controller]()
 
 This will have a lot of cables coming out of it, but you probably want to work out how to power it! 
 
@@ -113,11 +111,11 @@ Here we have chosen to use a Raspberry Pi 4B single board computer as its a nice
 
 Place the raspberry pi into the 3D printed case and carefully screw it in. Then screw in the raspberry pi camera into the top surface of the case using some m2 nuts and bolts. Use the dual-loc velcro like tape to attach it to the bottom of the drone! Make sure you don't cover up any of the screw access holes! 
 
-[Picture of attachment of pi case]()
+![Picture of attachment of pi case]()
 
 The pi will be both powered and connected to the FC via its GPIO (general purpose IO pins). For powering, the PI will be directly powered using the 5v pin - you can plug the connector into the spot with a 5v next to a ground! For talking to the FC, you can use the custom cable to connect the `TELEM2` port to the `UART` pins of the Pi. See the following diagram for details:
 
-[Insert link to PX4/Pi connection and picture of GPIO]()
+![Insert link to PX4/Pi connection and picture of GPIO]()
 
 > **NOTE: Make sure you plug the power connector the right way around. Plugging it in the wrong way or in the wrong pins can blow the Pi.**
 
@@ -127,7 +125,7 @@ We have also included the VL53L1X rangefinder sensor - this uses a light or infr
 
 Use some of the leftover tape to stick it to the underside towards the front, under the video transmitter unit. This will need to plug into the FC, but have a think of where it might go as a sensor! 
 
-[Insert picture of rangefinder in position on drone]()
+![Insert picture of rangefinder in position on drone]()
 
 ## Drone Setup
 
