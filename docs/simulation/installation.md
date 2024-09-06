@@ -132,7 +132,9 @@ This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortres
 ./docker/docker_vnc_start.bash
 ```
 
-After building for a while, this will say that it has started the VNC server
+After building for a while, this will say that it has started the VNC server.
+
+> Note in some instances, the first time you build it it may time out. Run it again and it should finish its build. 
 
 Go into a browser and navigate to `https://127.0.0.1:6080` and press `connect`. This will drop you into an ubunut22.04 desktop environment with all the things you need! 
 
