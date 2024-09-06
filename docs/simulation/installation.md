@@ -14,6 +14,8 @@ There are three ways you can run this project depending on your situation or ope
 
 Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
 
+> **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
 See Documentation for detailed instructions
 
 ### Local
