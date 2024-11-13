@@ -8,16 +8,18 @@ Tutorial is [here](https://ucl-delta.github.io/project_gazebo_aruco/)
 
 ## Usage
 
-There are three ways you can run this project depending on your situation or operating system. 
-- Linux: All 3 ways will work
-- Windows: Docker and Docker with VNC (You will need the WSL2 backend)
-- Max OSX: Docker with VNC
+To avoid any unforeseeable problems with running this project in windows and Mac os system and make you stuck, we only recommand using Linux system. It could make things easier and let you and us focus more on the real work rather than making things working. If you are windows or Mac users, follow the following instructions.
+- will add linux installtion instruction here for both windows and mac users.
+
+<!--- - Windows: Docker and Docker with VNC (You will need the WSL2 backend)
+- Max OSX: Docker with VNC > **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+See Documentation for detailed instructions -->
 
 Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
 
-> **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-See Documentation for detailed instructions
+Once you have Linux systems running successfully in your computer. You can keep on setting up the environment by following either way of Local or Docker.
 
 ### Local
 
@@ -70,7 +72,7 @@ cd /ros2/project_gazebo_aruco
 
 > Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_start.bash`
 
-### Docker with VNC
+<!--- ### Docker with VNC
 
 This will enable all of the ROS2 to run standalone with no outside network connections. It makes use of a Virtual Network Computing interface to share a the container's desktop GUI with the outside world. In this case your browser! 
 
@@ -105,7 +107,9 @@ cd /ros2/project_gazebo_aruco
 ./launch_as2.bash -s -t
 ```
 
-> Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_vnc_start.bash` when running the vnc. 
+> Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_vnc_start.bash` when running the vnc.  -->
+
+
 
 ## Contact
 
