@@ -2,13 +2,13 @@
 
 This tutorial project simulates a drone detecting and following aruco fiducial markers.
 
-This project is based on aerostack2 drone flying framework which uses ROS2 but has a nice python api
+This project is based on aerostack2 drone flying framework which uses ROS2 but has a nice python api.
 
 Tutorial is [here](https://ucl-delta.github.io/project_gazebo_aruco/)
 
 ## Usage
 
-To avoid any unforeseeable problems with running this project in windows and Mac os system and make you stuck, we only recommand using Linux system. It could make things easier and let you and us focus more on the real work rather than making things working. If you are windows or Mac users, follow the following instructions.
+To avoid any unforeseeable problems with running this project in windows and Mac os system that get you stuck, we recommand using Linux system. It could make things easier and let you and us focus more on the real work rather than making things working. If you are windows or Mac os users, follow the following instructions.
 - will add linux installtion instruction here for both windows and mac users.
 
 <!--- - Windows: Docker and Docker with VNC (You will need the WSL2 backend)
@@ -18,8 +18,7 @@ See Documentation for detailed instructions -->
 
 Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
 
-
-Once you have Linux systems running successfully in your computer. You can keep on setting up the environment by following either way of Local or Docker.
+Once you have Linux systems running successfully in your computer. You can keep on setting up the project by following either way of Local or Docker.
 
 ### Local
 
