@@ -22,9 +22,7 @@ Once you have Linux systems running successfully in your computer. You can keep 
 
 ### Local
 
-Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions
-
-Setup and build Aerostack2 (we use version 1.1.2)
+Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress, and setup and build Aerostack2 (we use version 1.1.2) as per their instructions [here](https://ucl-delta.github.io/project_gazebo_aruco/simulation/installation/#environment-installation).
 
 Get this project locally
 
@@ -42,7 +40,9 @@ Run the example using
 
 ### Docker
 
-Ensure Docker or Docker Desktop is installed on your machine
+Ensure Docker or Docker Desktop is installed on your machine. 
+
+If you don't Docker installed, follow the installation instruction [Docker install](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).
 
 First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)
 
