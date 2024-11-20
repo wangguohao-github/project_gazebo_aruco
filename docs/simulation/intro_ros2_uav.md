@@ -182,7 +182,7 @@ There are some interesting changes between ROS1 and ROS2, but the core elements 
 
 ### Communicating between ROS2 and Drones
 
-Coming back round to flying drones, we mentioned earlier that we want ROS to communicate with the autopilot in the most straightforward way possible. Ideally communicate in a way that provides a consistent (ROS) intface with which we can build controllers against! 
+Coming back round to flying drones, we mentioned earlier that we want ROS to communicate with the autopilot in the most straightforward way possible. Ideally communicate in a way that provides a consistent (ROS) interface with which we can build controllers against! 
 
 #### XRCE-DDS and ROS 
 
