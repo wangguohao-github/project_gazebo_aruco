@@ -31,7 +31,7 @@ The Pdf link of the instruction sheet printed out on the table
 
 One of the first components you will come across is the spidery looking bunch of cables attached to a central board
 
-[Power Distribution Board (pdb)](images/pdb_connections.png)
+![Power Distribution Board (pdb)](images/pdb_connections.png)
 
 The main board is what is known as the power distribution board and is responsible for powering all the components on the drone, as well as handling the high current draws required by the motors! 
 
