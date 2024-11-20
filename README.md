@@ -4,109 +4,13 @@ This tutorial project simulates a drone detecting and following aruco fiducial m
 
 This project is based on aerostack2 drone flying framework which uses ROS2 but has a nice python api.
 
-Detailed tutorial documentation is [here](https://ucl-delta.github.io/project_gazebo_aruco/). For project installation, please follow the following instructions.
+Detailed tutorial documentation is [here](https://ucl-delta.github.io/project_gazebo_aruco/). Before go to the documentation, please read the following notes first.
 
-## Project installation
-
-To avoid any unforeseeable problems with running this project in windows and Mac os system that get you stuck, we recommand using Linux system. It could make things easier and let you and us focus more on the real work rather than making things working. If you are windows or Mac os users, follow the following instructions.
-- will add linux installtion instruction here for both windows and mac users.
-
-<!--- - Windows: Docker and Docker with VNC (You will need the WSL2 backend)
-- Max OSX: Docker with VNC > **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-See Documentation for detailed instructions -->
-
-Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
-
-Once you have Linux systems running successfully in your computer. You can keep on setting up the project by following either way of Local or Docker.
-
-### Local
-
-Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress, and setup and build Aerostack2 (we use version 1.1.2) as per their instructions [here](https://ucl-delta.github.io/project_gazebo_aruco/simulation/installation/#environment-installation).
-
-Get this project locally
-
-```
-mkdir -p ~/aerostack2_ws/src
-cd ~/aerostack2_ws/src
-git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-```
-
-Run the example using 
-
-```
-./launch_as2.bash -s -t
-```
-
-### Docker
-
-Ensure Docker or Docker Desktop is installed on your machine. 
-
-If you don't have Docker installed, follow the installation instruction [Docker install](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).
-
-First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)
-
-```
-git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-```
-
-To build and/or run the container, run the following script
-
-
-```
-./docker/docker_start.bash
-```
-After building for a while, this will drop you inside the docker container.
-
-This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress. The container will have live mounted this project into `/ros2/project_gazebo_aruco` so that any changes made to this repository outside of the container will be reflected inside. 
-
-Inside the container, navigate to that repository and run the example.
-
-```
-cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-```
-
-> Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_start.bash`
-
-<!--- ### Docker with VNC
-
-This will enable all of the ROS2 to run standalone with no outside network connections. It makes use of a Virtual Network Computing interface to share a the container's desktop GUI with the outside world. In this case your browser! 
-
-Ensure Docker or Docker Desktop is installed on your machine
-
-First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)
-
-```
-git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-```
-
-To build and/or run the container run the script
-
-This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress
-
-```
-./docker/docker_vnc_start.bash
-```
-
-After building for a while, this will say that it has started the VNC server
-
-> Note: The first time you build it it may time out. Run the command again and it should comeplete the build. 
-
-Go into a browser and navigate to `https://127.0.0.1:6080` and press `connect`. This will drop you into an ubunut22.04 desktop environment with all the things you need! 
-
-The container will have live mounted this project into `/ros2/project_gazebo_aruco` so that any changes made to this repository outside of the container will be reflected inside. 
-
-Open up a terminal (`terminator`) and navigate to `/ros2/project_gazebo_aruco` to run the example. 
-
-```
-cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-```
-
-> Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_vnc_start.bash` when running the vnc.  -->
-
-
+## Notes
+### About operating system - Ubuntu 22.04 Only
+For this project, we only recommend linux systems, especially Ubuntu 22.04, which is compatible with ROS2 humble and other platforms. We know that you may be a Windows or Mac user. We have been experimenting with various methods, including WSLs and virtual machines, in an attempt to get the project to run stably on a variety of operating system environments. However, we've encountered a variety of bugs in the process, and we've spent a lot of time working through existing bugs, and we're not sure if new bugs will show up on your PC. We'd like to save you and us the energy of configuring the environment on your project and focus more on the course content itself, so please complete the installation of your Ubuntu 22.04 system before proceeding with the installation of the project. Thank you for your co-operation.
+### About project installation - Either Local or Docker
+You can install this project either locally or through running a container by Docker. Forget about Docker VNC.
 
 ## Contact
 
