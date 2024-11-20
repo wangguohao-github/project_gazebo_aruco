@@ -4,9 +4,9 @@ This tutorial project simulates a drone detecting and following aruco fiducial m
 
 This project is based on aerostack2 drone flying framework which uses ROS2 but has a nice python api.
 
-Tutorial documentation is [here](https://ucl-delta.github.io/project_gazebo_aruco/).
+Detailed tutorial documentation is [here](https://ucl-delta.github.io/project_gazebo_aruco/). For project installation, please follow the following instructions.
 
-## Usage
+## Project installation
 
 To avoid any unforeseeable problems with running this project in windows and Mac os system that get you stuck, we recommand using Linux system. It could make things easier and let you and us focus more on the real work rather than making things working. If you are windows or Mac os users, follow the following instructions.
 - will add linux installtion instruction here for both windows and mac users.
