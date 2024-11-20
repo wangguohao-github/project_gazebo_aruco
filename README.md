@@ -4,7 +4,7 @@ This tutorial project simulates a drone detecting and following aruco fiducial m
 
 This project is based on aerostack2 drone flying framework which uses ROS2 but has a nice python api.
 
-Tutorial is [here](https://ucl-delta.github.io/project_gazebo_aruco/).
+Tutorial documentation is [here](https://ucl-delta.github.io/project_gazebo_aruco/).
 
 ## Usage
 
@@ -42,7 +42,7 @@ Run the example using
 
 Ensure Docker or Docker Desktop is installed on your machine. 
 
-If you don't Docker installed, follow the installation instruction [Docker install](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).
+If you don't have Docker installed, follow the installation instruction [Docker install](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).
 
 First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)
 
@@ -50,17 +50,15 @@ First your will need to clone this project somewhere (doesn't need to be in a ro
 git clone https://github.com/ucl-delta/project_gazebo_aruco.git
 ```
 
-To build and/or run the container run the script
+To build and/or run the container, run the following script
 
-This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress
 
 ```
 ./docker/docker_start.bash
 ```
-
 After building for a while, this will drop you inside the docker container.
 
-The container will have live mounted this project into `/ros2/project_gazebo_aruco` so that any changes made to this repository outside of the container will be reflected inside. 
+This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress. The container will have live mounted this project into `/ros2/project_gazebo_aruco` so that any changes made to this repository outside of the container will be reflected inside. 
 
 Inside the container, navigate to that repository and run the example.
 
