@@ -55,7 +55,7 @@ You will see that there are no instructions on installing the motors!
 
 Hopefully you have a good idea of where the motors are meant to go! Try and install them so that the wires go towards the chasis and dont poke out the side. 
 
-We have printed some propellor guards for the drone, these go under the arm using the same mounting points as the motors. You will need the m3x8mm bolts. Ensure that they are securely fastened
+We have printed some propellor guards for the drone, these go under the arm using the same mounting points as the motors. You will need the m3x8mm bolts. Ensure that they are securely fastened.
 
 ![Insert picture of prop guard attachment point](images/prop_guard.png)
 
