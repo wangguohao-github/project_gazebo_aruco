@@ -31,7 +31,7 @@ The Pdf link of the instruction sheet printed out on the table
 
 One of the first components you will come across is the spidery looking bunch of cables attached to a central board
 
-[Insert Picture of the PDB](images/pdb_connections.png)
+![Power Distribution Board (pdb)](images/pdb_connections.png)
 
 The main board is what is known as the power distribution board and is responsible for powering all the components on the drone, as well as handling the high current draws required by the motors! 
 
@@ -43,7 +43,7 @@ Each of the four legs contains what is known as the electronic speed controller 
 
 > Note: You will need to double check the order of the ESC cables are plugged into the FC when you get to running the software configuration. Making a mistake here may cause the drone to be uncontrollable! Rea
 
-The final component attached by the thin red and black wires are a video transmitter powering module. This is a second module used to transmit video data in analogue but low latency manner to a receiver. Here is a link to the device, work out how the video transmission is powered! 
+The final component attached by the thin red and black wires are a video transmitter powering module. This is a second module used to transmit video data in analogue but low latency manner to a receiver. [Here](https://holybro.com/products/micro-power-module-pm06-v2?srsltid=AfmBOoomwZmf0czXNVOHfgPkEa4Q1scswnvMRG8EOWrfR6RyyRrEZqo-) is a link to the device, work out how the video transmission is powered! 
 
 ![Insert picture and link to the specifc device](images/osd.png)
 
@@ -55,7 +55,7 @@ You will see that there are no instructions on installing the motors!
 
 Hopefully you have a good idea of where the motors are meant to go! Try and install them so that the wires go towards the chasis and dont poke out the side. 
 
-We have printed some propellor guards for the drone, these go under the arm using the same mounting points as the motors. You will need the m3x8mm bolts. Ensure that they are securely fastened
+We have printed some propellor guards for the drone, these go under the arm using the same mounting points as the motors. You will need the m3x8mm bolts. Ensure that they are securely fastened.
 
 ![Insert picture of prop guard attachment point](images/prop_guard.png)
 
