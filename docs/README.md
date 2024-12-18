@@ -2,7 +2,7 @@
 
 Welcome to this tutorial in which we aim to fly both a real and simulated drone around some aruco markers! 
 
-This tutorial/workshop is designed for the 2024 autonomous drone hackathon ran at UCL HereEast on the 7/8th September. 
+This tutorial is designed for the 24-25 COMP0240 Aerial Robotics: Fundamentals to Practice in Real-World Environments. 
 
 ## Contents
 
@@ -23,3 +23,4 @@ This project is developed by the following people:
 - Mickey Li - [email](mickey.li@ucl.ac.uk)
 - Chris Bendowski
 - Vijay Pawar
+- Guohao Wang
