@@ -12,7 +12,7 @@ There are three ways you can run this project depending on your situation or ope
 - Windows: Boot from an external SSD provided by us
 - Max OSX: TBC
 
-## Linux users
+## For Linux users
 If you are a Linux user, you will have two options to set up your project, i.e. Local or Docker.
 
 ### Local
@@ -185,9 +185,9 @@ cd /ros2/project_gazebo_aruco
 
 
 
-## Windows users
+## For Windows users
 If you are a windows user, follow the following instructions.
 
 
-## Mac users
+## For Mac users
 If you are a Mac user, follow the following instructions.
