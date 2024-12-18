@@ -63,8 +63,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#docker">5.1.2 Docker</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#docker-with-vnc">5.1.3 Docker with VNC</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#environment-installation">5.2 Environment Installation</a>
@@ -116,7 +114,6 @@
 </ul>
 </li>
 <li><a href="#docker">5.1.2 Docker</a></li>
-<li><a href="#docker-with-vnc">5.1.3 Docker with VNC</a></li>
 </ul>
 </li>
 <li><a href="#environment-installation">5.2 Environment Installation</a><ul>
@@ -132,15 +129,10 @@
 <h2 id="installation"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
 <p>There are three ways you can run this project depending on your situation or operating system. </p>
 <ul>
-<li>Linux: All 3 ways will work</li>
-<li>Windows: Docker and Docker with VNC</li>
-<li>Max OSX: Docker with VNC</li>
+<li>Linux: All 2 ways (Local and Docker) will work</li>
+<li>Windows: Boot from an external SSD provided by us</li>
+<li>Max OSX: TBC</li>
 </ul>
-<p>Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. </p>
-<blockquote>
-<p><strong>Windows</strong> You will need to install WSL2 for Docker and these docker containers to work. <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Instructions Here</a></p>
-</blockquote>
-<p>See Documentation for detailed instructions</p>
 <h3 id="local"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> Local<a class="headerlink" href="#local" title="Permanent link">¶</a></h3>
 <p>Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions. See <a href="#Environment-Installation">these instructions for installation</a></p>
 <h4 id="setup-and-build-aerostack2-we-use-version-112"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1.1</span> Setup and build Aerostack2 (we use version 1.1.2)<a class="headerlink" href="#setup-and-build-aerostack2-we-use-version-112" title="Permanent link">¶</a></h4>
@@ -196,29 +188,6 @@ git clone https://github.com/ucl-delta/project_gazebo_aruco.git
 </code></pre>
 <blockquote>
 <p>Note that you can utilise a GPU if you install the <code>nvidia-container-toolkit</code>. Pass the <code>-nvidia</code> argument to <code>docker_start.bash</code></p>
-</blockquote>
-<h3 id="docker-with-vnc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.3</span> Docker with VNC<a class="headerlink" href="#docker-with-vnc" title="Permanent link">¶</a></h3>
-<p>This will enable all of the ROS2 to run standalone with no outside network connections. It makes use of a Virtual Network Computing interface to share a the container's desktop GUI with the outside world. In this case your browser! </p>
-<p>Ensure Docker or Docker Desktop is installed on your machine</p>
-<p>First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)</p>
-<pre><code>git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-</code></pre>
-<p>To build and/or run the container run the script</p>
-<p>This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress</p>
-<pre><code>./docker/docker_vnc_start.bash
-</code></pre>
-<p>After building for a while, this will say that it has started the VNC server.</p>
-<blockquote>
-<p>Note in some instances, the first time you build it it may time out. Run it again and it should finish its build. </p>
-</blockquote>
-<p>Go into a browser and navigate to <code>https://127.0.0.1:6080</code> and press <code>connect</code>. This will drop you into an ubunut22.04 desktop environment with all the things you need! </p>
-<p>The container will have live mounted this project into <code>/ros2/project_gazebo_aruco</code> so that any changes made to this repository outside of the container will be reflected inside. </p>
-<p>Open up a terminal (<code>terminator</code>) and navigate to <code>/ros2/project_gazebo_aruco</code> to run the example. </p>
-<pre><code>cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-</code></pre>
-<blockquote>
-<p>Note that you can utilise a GPU if you install the <code>nvidia-container-toolkit</code>. Pass the <code>-nvidia</code> argument to <code>docker_vnc_start.bash</code> when running the vnc. </p>
 </blockquote>
 <h2 id="environment-installation"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Environment Installation<a class="headerlink" href="#environment-installation" title="Permanent link">¶</a></h2>
 <blockquote>
