@@ -186,3 +186,4 @@ cd /ros2/project_gazebo_aruco
 
 
 ## Windows users
+If you are a windows user, follow the following instructions.
