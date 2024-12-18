@@ -187,3 +187,7 @@ cd /ros2/project_gazebo_aruco
 
 ## Windows users
 If you are a windows user, follow the following instructions.
+
+
+## Mac users
+If you are a Mac user, follow the following instructions.
