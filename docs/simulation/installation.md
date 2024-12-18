@@ -16,7 +16,81 @@ There are three ways you can run this project depending on your situation or ope
 
 ### Local
 
-Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions. See [these instructions for installation](#Environment-Installation)
+Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions.
+
+#### Installing Ubuntu 22.04
+
+Your options are 
+
+1. Finding a spare machine that you can wipe and install Ubuntu on
+2. Finding a machine that you would be willing to dual boot
+3. Running a virtual machine
+4. Running a container (Not supported yet as I havent made a container - also this requires gazebo which requires a GUI which is not ideal for containers apart from singularity containers)
+
+For options 1 and 2, you will need to find a USB stick that is >4Gb and using a tool such as [Rufus](https://rufus.ie/en/) flash the [Ubuntu 22.04 ISO file](https://ubuntu.com/download/desktop) onto it. 
+
+Once you have a flashed USB drive, you can insert that into the spare machine. On startup make sure to mash some combination of F2, F8 or F12 to go to the BIOS boot screen and select boot from USB. 
+
+This will start up tp the Ubuntu installer on the USB drive where you can select what to do. Whether that is to wipe the machine, or in the advanced menu create a new partition for Ubuntu so you can dual boot (For Windows you will also need to shrink your primary partition). For more details [see a guide such as this one](https://www.onlogic.com/company/io-hub/how-to-dual-boot-windows-11-and-linux/). 
+
+You can also download the ISO file and run it in a virtual machine program such as [VirtualBox](https://www.virtualbox.org/). 
+
+> I have created and exported a virtual machine with everything already installed for you to use. See the private teams group. 
+
+In virtualbox you can import an existing virtual machine. Once installed and you have the gui up, there is an option to import (orange arrow), in which you can select the existing exported virtual machine.
+Once you have a virtual machine setup, you can simply start it. 
+
+> Note: Since this project uses gazebo and is not the lightest workioad, you may want to give the VM more resources i.e. CPU, RAM and potetially video memory too. You can do this in the virtual machine settings. 
+
+#### Installing ROS2 Humble
+
+For this project we will be using ROS2 Humble. Full installation instructions are [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). But in short:
+
+```
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+
+# Install
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Update
+sudo apt update
+sudo apt upgrade
+
+# Install ROS2
+sudo apt install ros-humble-desktop
+sudo apt install ros-dev-tools
+
+# Auto Source in bashrc to have access to ros2 tools
+echo 'source ~/opt/ros/huble/setup.bash' >> $HOME/.bashrc
+```
+
+#### Installing Ignition Gazebo Fortress
+
+The recommended compatible gazebo version for Ubuntu 22.04 and Humble is Fortress where installation instructions are [here](https://gazebosim.org/docs/fortress/install_ubuntu). But in short:
+
+```
+sudo apt-get update
+sudo apt-get install lsb-release wget gnupg
+
+sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+sudo apt-get update
+sudo apt-get install ignition-fortress
+```
+You can check succesful installation by using the `ign` cli command or `gz` cli command
+
+With these three installed, you should be ready to run the sample gazebo aruco simulation
 
 
 #### Setup and build Aerostack2 (we use version 1.1.2)
@@ -109,87 +183,5 @@ cd /ros2/project_gazebo_aruco
 > Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_start.bash`
 
 
-
-## Environment Installation
-
-> This section applies if you are trying to setup from scratch
-
-This project relies on ROS2 Humble (End-of-life 2027), Ignition Gazebo Fortress, and Ubuntu 22.04. This section goes over how to install these elements. 
-
-> You may want to refer to the [Intro To Linux Tutorial](intro_to_linux.md) to setup some of the dependencies.
-
-#### Installing Ubuntu 22.04
-
-Your options are 
-
-1. Finding a spare machine that you can wipe and install Ubuntu on
-2. Finding a machine that you would be willing to dual boot
-3. Running a virtual machine
-4. Running a container (Not supported yet as I havent made a container - also this requires gazebo which requires a GUI which is not ideal for containers apart from singularity containers)
-
-For options 1 and 2, you will need to find a USB stick that is >4Gb and using a tool such as [Rufus](https://rufus.ie/en/) flash the [Ubuntu 22.04 ISO file](https://ubuntu.com/download/desktop) onto it. 
-
-Once you have a flashed USB drive, you can insert that into the spare machine. On startup make sure to mash some combination of F2, F8 or F12 to go to the BIOS boot screen and select boot from USB. 
-
-This will start up tp the Ubuntu installer on the USB drive where you can select what to do. Whether that is to wipe the machine, or in the advanced menu create a new partition for Ubuntu so you can dual boot (For Windows you will also need to shrink your primary partition). For more details [see a guide such as this one](https://www.onlogic.com/company/io-hub/how-to-dual-boot-windows-11-and-linux/). 
-
-You can also download the ISO file and run it in a virtual machine program such as [VirtualBox](https://www.virtualbox.org/). 
-
-> I have created and exported a virtual machine with everything already installed for you to use. See the private teams group. 
-
-In virtualbox you can import an existing virtual machine. Once installed and you have the gui up, there is an option to import (orange arrow), in which you can select the existing exported virtual machine.
-Once you have a virtual machine setup, you can simply start it. 
-
-> Note: Since this project uses gazebo and is not the lightest workioad, you may want to give the VM more resources i.e. CPU, RAM and potetially video memory too. You can do this in the virtual machine settings. 
-
-#### Installing ROS2 Humble
-
-For this project we will be using ROS2 Humble. Full installation instructions are [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). But in short:
-
-```
-locale  # check for UTF-8
-
-sudo apt update && sudo apt install locales
-sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-locale  # verify settings
-
-# Install
-sudo apt install software-properties-common
-sudo add-apt-repository universe
-sudo apt update && sudo apt install curl -y
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-
-# Update
-sudo apt update
-sudo apt upgrade
-
-# Install ROS2
-sudo apt install ros-humble-desktop
-sudo apt install ros-dev-tools
-
-# Auto Source in bashrc to have access to ros2 tools
-echo 'source ~/opt/ros/huble/setup.bash' >> $HOME/.bashrc
-```
-
-#### Installing Ignition Gazebo Fortress
-
-The recommended compatible gazebo version for Ubuntu 22.04 and Humble is Fortress where installation instructions are [here](https://gazebosim.org/docs/fortress/install_ubuntu). But in short:
-
-```
-sudo apt-get update
-sudo apt-get install lsb-release wget gnupg
-
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-sudo apt-get update
-sudo apt-get install ignition-fortress
-```
-You can check succesful installation by using the `ign` cli command or `gz` cli command
-
-With these three installed, you should be ready to run the sample gazebo aruco simulation
 
 ## Windows users
