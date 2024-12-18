@@ -1,6 +1,6 @@
 site_name: Aruco Autonomous Drones
 theme: readthedocs
-repo_url: https://github.com/ucl-delta/project_gazebo_aruco
+repo_url: https://github.com/wangguohao-github/project_gazebo_aruco.git
 site_description: 'Aerostack2 with Aruco Marker Detection in Gazebo/PX4'
 docs_dir: 'docs'
 copyright: Copyright &copy; 2024 University College London AML Lab
