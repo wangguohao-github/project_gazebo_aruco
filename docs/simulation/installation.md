@@ -11,6 +11,8 @@ There are three ways you can run this project depending on your situation or ope
 - Linux: All 2 ways (Local and Docker) will work
 - Windows: Boot from an external SSD provided by us
 - Max OSX: TBC
+- 
+## Linux users
 
 ### Local
 
@@ -189,3 +191,5 @@ sudo apt-get install ignition-fortress
 You can check succesful installation by using the `ign` cli command or `gz` cli command
 
 With these three installed, you should be ready to run the sample gazebo aruco simulation
+
+## Windows users
