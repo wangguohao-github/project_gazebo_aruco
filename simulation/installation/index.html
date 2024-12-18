@@ -52,28 +52,30 @@
 <li class="toctree-l1 current"><a class="reference internal current" href="#">Project Installation</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#installation">5.1 Installation</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#local">5.1.1 Local</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#setup-and-build-aerostack2-we-use-version-112">Setup and build Aerostack2 (we use version 1.1.2)</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#setup-this-project">Setup this project</a>
+<li class="toctree-l2"><a class="reference internal" href="#for-linux-users">5.2 For Linux users</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#local">5.2.1 Local</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-installing-ubuntu-2204">1. Installing Ubuntu 22.04</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-installing-ros2-humble">2. Installing ROS2 Humble</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-installing-ignition-gazebo-fortress">3. Installing Ignition Gazebo Fortress</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-setup-and-build-aerostack2-we-use-version-112">4. Setup and build Aerostack2 (we use version 1.1.2)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#5-setup-this-project">5. Setup this project</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#docker">5.1.2 Docker</a>
+<li class="toctree-l3"><a class="reference internal" href="#docker">5.2.2 Docker</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-installation">5.2 Environment Installation</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#installing-ubuntu-2204">Installing Ubuntu 22.04</a>
+<li class="toctree-l2"><a class="reference internal" href="#for-windows-users">5.3 For Windows users</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-ros2-humble">Installing ROS2 Humble</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#installing-ignition-gazebo-fortress">Installing Ignition Gazebo Fortress</a>
-</li>
-</ul>
+<li class="toctree-l2"><a class="reference internal" href="#for-mac-users">5.4 For Mac users</a>
 </li>
 </ul>
 </li>
@@ -107,21 +109,21 @@
 <div class="toc">
 <ul>
 <li><a href="#installation-the-aruco-project">5. Installation the ARUCO Project</a><ul>
-<li><a href="#installation">5.1 Installation</a><ul>
-<li><a href="#local">5.1.1 Local</a><ul>
-<li><a href="#setup-and-build-aerostack2-we-use-version-112">Setup and build Aerostack2 (we use version 1.1.2)</a></li>
-<li><a href="#setup-this-project">Setup this project</a></li>
+<li><a href="#installation">5.1 Installation</a></li>
+<li><a href="#for-linux-users">5.2 For Linux users</a><ul>
+<li><a href="#local">5.2.1 Local</a><ul>
+<li><a href="#1-installing-ubuntu-2204">1. Installing Ubuntu 22.04</a></li>
+<li><a href="#2-installing-ros2-humble">2. Installing ROS2 Humble</a></li>
+<li><a href="#3-installing-ignition-gazebo-fortress">3. Installing Ignition Gazebo Fortress</a></li>
+<li><a href="#4-setup-and-build-aerostack2-we-use-version-112">4. Setup and build Aerostack2 (we use version 1.1.2)</a></li>
+<li><a href="#5-setup-this-project">5. Setup this project</a></li>
 </ul>
 </li>
-<li><a href="#docker">5.1.2 Docker</a></li>
+<li><a href="#docker">5.2.2 Docker</a></li>
 </ul>
 </li>
-<li><a href="#environment-installation">5.2 Environment Installation</a><ul>
-<li><a href="#installing-ubuntu-2204">Installing Ubuntu 22.04</a></li>
-<li><a href="#installing-ros2-humble">Installing ROS2 Humble</a></li>
-<li><a href="#installing-ignition-gazebo-fortress">Installing Ignition Gazebo Fortress</a></li>
-</ul>
-</li>
+<li><a href="#for-windows-users">5.3 For Windows users</a></li>
+<li><a href="#for-mac-users">5.4 For Mac users</a></li>
 </ul>
 </li>
 </ul>
@@ -133,71 +135,11 @@
 <li>Windows: Boot from an external SSD provided by us</li>
 <li>Max OSX: TBC</li>
 </ul>
-<h3 id="local"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> Local<a class="headerlink" href="#local" title="Permanent link">¶</a></h3>
-<p>Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions. See <a href="#Environment-Installation">these instructions for installation</a></p>
-<h4 id="setup-and-build-aerostack2-we-use-version-112"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1.1</span> Setup and build Aerostack2 (we use version 1.1.2)<a class="headerlink" href="#setup-and-build-aerostack2-we-use-version-112" title="Permanent link">¶</a></h4>
-<p>In your home directory (could be anywhere else but all the paths below are for your home directory)</p>
-<pre><code>mkdir -p ~/aerostack2_ws/src
-cd ~/aerostack2_ws/src
-git clone https://github.com/mhl787156/aerostack2.git -b 1.1.2
-</code></pre>
-<p>This will create a ros2 workspace and place the two project repositories in it.</p>
-<p>You will need to install the dependencies by running the following:</p>
-<pre><code>sudo apt install git python3-rosdep python3-pip python3-colcon-common-extensions tmux tmuxinator -y
-</code></pre>
-<p>And then going back into the root workspace</p>
-<pre><code>cd ~/aerostack2_ws
-sudo rosdep init
-rosdep update
-rosdep install -y -r -q --from-paths src --ignore-src
-</code></pre>
-<p>Then, enable the handy aerostack2 cli (only run this once)</p>
-<pre><code>echo 'export AEROSTACK2_PATH=$HOME/aerostack2_ws/src/aerostack2' &gt;&gt; $HOME/.bashrc
-echo 'source $AEROSTACK2_PATH/as2_cli/setup_env.bash' &gt;&gt; $HOME/.bashrc
-echo 'source $HOME/aerostack2_ws/install/setup.bash' &gt;&gt; $HOME/.bashrc
-source ~/.bashrc
-</code></pre>
-<p>This will enable you to build the project from any folder using</p>
-<pre><code>as2 build
-</code></pre>
-<p>Now as2 should be installed.</p>
-<h4 id="setup-this-project"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1.2</span> Setup this project<a class="headerlink" href="#setup-this-project" title="Permanent link">¶</a></h4>
-<p>Get this project locally</p>
-<pre><code>mkdir -p ~/aerostack2_ws/src
-cd ~/aerostack2_ws/src
-git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-</code></pre>
-<p>Run the example using </p>
-<pre><code>cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-</code></pre>
-<h3 id="docker"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.2</span> Docker<a class="headerlink" href="#docker" title="Permanent link">¶</a></h3>
-<p>Ensure Docker or Docker Desktop is installed on your machine</p>
-<p>First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)</p>
-<pre><code>git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-</code></pre>
-<p>To build and/or run the container run the script</p>
-<p>This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress</p>
-<pre><code>./docker/docker_start.bash
-</code></pre>
-<p>After building for a while, this will drop you inside the docker container.</p>
-<p>The container will have live mounted this project into <code>/ros2/project_gazebo_aruco</code> so that any changes made to this repository outside of the container will be reflected inside. </p>
-<p>Inside the container, navigate to that repository and run the example.</p>
-<pre><code>cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-</code></pre>
-<blockquote>
-<p>Note that you can utilise a GPU if you install the <code>nvidia-container-toolkit</code>. Pass the <code>-nvidia</code> argument to <code>docker_start.bash</code></p>
-</blockquote>
-<h2 id="environment-installation"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Environment Installation<a class="headerlink" href="#environment-installation" title="Permanent link">¶</a></h2>
-<blockquote>
-<p>This section applies if you are trying to setup from scratch</p>
-</blockquote>
-<p>This project relies on ROS2 Humble (End-of-life 2027), Ignition Gazebo Fortress, and Ubuntu 22.04. This section goes over how to install these elements. </p>
-<blockquote>
-<p>You may want to refer to the <a href="../intro_to_linux/">Intro To Linux Tutorial</a> to setup some of the dependencies.</p>
-</blockquote>
-<h4 id="installing-ubuntu-2204"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.0.1</span> Installing Ubuntu 22.04<a class="headerlink" href="#installing-ubuntu-2204" title="Permanent link">¶</a></h4>
+<h2 id="for-linux-users"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> For Linux users<a class="headerlink" href="#for-linux-users" title="Permanent link">¶</a></h2>
+<p>If you are a Linux user, you will have two options to set up your project, i.e. Local or Docker.</p>
+<h3 id="local"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1</span> Local<a class="headerlink" href="#local" title="Permanent link">¶</a></h3>
+<p>Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions.</p>
+<h4 id="1-installing-ubuntu-2204"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.1</span> 1. Installing Ubuntu 22.04<a class="headerlink" href="#1-installing-ubuntu-2204" title="Permanent link">¶</a></h4>
 <p>Your options are </p>
 <ol>
 <li>Finding a spare machine that you can wipe and install Ubuntu on</li>
@@ -217,7 +159,7 @@ Once you have a virtual machine setup, you can simply start it. </p>
 <blockquote>
 <p>Note: Since this project uses gazebo and is not the lightest workioad, you may want to give the VM more resources i.e. CPU, RAM and potetially video memory too. You can do this in the virtual machine settings. </p>
 </blockquote>
-<h4 id="installing-ros2-humble"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.0.2</span> Installing ROS2 Humble<a class="headerlink" href="#installing-ros2-humble" title="Permanent link">¶</a></h4>
+<h4 id="2-installing-ros2-humble"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.2</span> 2. Installing ROS2 Humble<a class="headerlink" href="#2-installing-ros2-humble" title="Permanent link">¶</a></h4>
 <p>For this project we will be using ROS2 Humble. Full installation instructions are <a href="https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html">here</a>. But in short:</p>
 <pre><code>locale  # check for UTF-8
 
@@ -246,7 +188,7 @@ sudo apt install ros-dev-tools
 # Auto Source in bashrc to have access to ros2 tools
 echo 'source ~/opt/ros/huble/setup.bash' &gt;&gt; $HOME/.bashrc
 </code></pre>
-<h4 id="installing-ignition-gazebo-fortress"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.0.3</span> Installing Ignition Gazebo Fortress<a class="headerlink" href="#installing-ignition-gazebo-fortress" title="Permanent link">¶</a></h4>
+<h4 id="3-installing-ignition-gazebo-fortress"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.3</span> 3. Installing Ignition Gazebo Fortress<a class="headerlink" href="#3-installing-ignition-gazebo-fortress" title="Permanent link">¶</a></h4>
 <p>The recommended compatible gazebo version for Ubuntu 22.04 and Humble is Fortress where installation instructions are <a href="https://gazebosim.org/docs/fortress/install_ubuntu">here</a>. But in short:</p>
 <pre><code>sudo apt-get update
 sudo apt-get install lsb-release wget gnupg
@@ -258,6 +200,64 @@ sudo apt-get install ignition-fortress
 </code></pre>
 <p>You can check succesful installation by using the <code>ign</code> cli command or <code>gz</code> cli command</p>
 <p>With these three installed, you should be ready to run the sample gazebo aruco simulation</p>
+<h4 id="4-setup-and-build-aerostack2-we-use-version-112"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.4</span> 4. Setup and build Aerostack2 (we use version 1.1.2)<a class="headerlink" href="#4-setup-and-build-aerostack2-we-use-version-112" title="Permanent link">¶</a></h4>
+<p>In your home directory (could be anywhere else but all the paths below are for your home directory)</p>
+<pre><code>mkdir -p ~/aerostack2_ws/src
+cd ~/aerostack2_ws/src
+git clone https://github.com/mhl787156/aerostack2.git -b 1.1.2
+</code></pre>
+<p>This will create a ros2 workspace and place the two project repositories in it.</p>
+<p>You will need to install the dependencies by running the following:</p>
+<pre><code>sudo apt install git python3-rosdep python3-pip python3-colcon-common-extensions tmux tmuxinator -y
+</code></pre>
+<p>And then going back into the root workspace</p>
+<pre><code>cd ~/aerostack2_ws
+sudo rosdep init
+rosdep update
+rosdep install -y -r -q --from-paths src --ignore-src
+</code></pre>
+<p>Then, enable the handy aerostack2 cli (only run this once)</p>
+<pre><code>echo 'export AEROSTACK2_PATH=$HOME/aerostack2_ws/src/aerostack2' &gt;&gt; $HOME/.bashrc
+echo 'source $AEROSTACK2_PATH/as2_cli/setup_env.bash' &gt;&gt; $HOME/.bashrc
+echo 'source $HOME/aerostack2_ws/install/setup.bash' &gt;&gt; $HOME/.bashrc
+source ~/.bashrc
+</code></pre>
+<p>This will enable you to build the project from any folder using</p>
+<pre><code>as2 build
+</code></pre>
+<p>Now as2 should be installed.</p>
+<h4 id="5-setup-this-project"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.5</span> 5. Setup this project<a class="headerlink" href="#5-setup-this-project" title="Permanent link">¶</a></h4>
+<p>Get this project locally</p>
+<pre><code>mkdir -p ~/aerostack2_ws/src
+cd ~/aerostack2_ws/src
+git clone https://github.com/ucl-delta/project_gazebo_aruco.git
+</code></pre>
+<p>Run the example using </p>
+<pre><code>cd /ros2/project_gazebo_aruco
+./launch_as2.bash -s -t
+</code></pre>
+<h3 id="docker"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.2</span> Docker<a class="headerlink" href="#docker" title="Permanent link">¶</a></h3>
+<p>Ensure Docker or Docker Desktop is installed on your machine</p>
+<p>First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)</p>
+<pre><code>git clone https://github.com/ucl-delta/project_gazebo_aruco.git
+</code></pre>
+<p>To build and/or run the container run the script</p>
+<p>This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress</p>
+<pre><code>./docker/docker_start.bash
+</code></pre>
+<p>After building for a while, this will drop you inside the docker container.</p>
+<p>The container will have live mounted this project into <code>/ros2/project_gazebo_aruco</code> so that any changes made to this repository outside of the container will be reflected inside. </p>
+<p>Inside the container, navigate to that repository and run the example.</p>
+<pre><code>cd /ros2/project_gazebo_aruco
+./launch_as2.bash -s -t
+</code></pre>
+<blockquote>
+<p>Note that you can utilise a GPU if you install the <code>nvidia-container-toolkit</code>. Pass the <code>-nvidia</code> argument to <code>docker_start.bash</code></p>
+</blockquote>
+<h2 id="for-windows-users"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> For Windows users<a class="headerlink" href="#for-windows-users" title="Permanent link">¶</a></h2>
+<p>If you are a windows user, follow the following instructions.</p>
+<h2 id="for-mac-users"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> For Mac users<a class="headerlink" href="#for-mac-users" title="Permanent link">¶</a></h2>
+<p>If you are a Mac user, follow the following instructions.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
