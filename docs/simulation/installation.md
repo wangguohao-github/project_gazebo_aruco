@@ -8,15 +8,9 @@ This page goes over how you run this example aruco project
 
 There are three ways you can run this project depending on your situation or operating system. 
 
-- Linux: All 3 ways will work
-- Windows: Docker and Docker with VNC
-- Max OSX: Docker with VNC
-
-Note that you will need at least 20Gb free on your system to avoid lockup. Graphics card and 16Gb RAM is recommended. 
-
-> **Windows** You will need to install WSL2 for Docker and these docker containers to work. [Instructions Here](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-See Documentation for detailed instructions
+- Linux: All 2 ways (Local and Docker) will work
+- Windows: Boot from an external SSD provided by us
+- Max OSX: TBC
 
 ### Local
 
@@ -111,43 +105,6 @@ cd /ros2/project_gazebo_aruco
 ```
 
 > Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_start.bash`
-
-### Docker with VNC
-
-This will enable all of the ROS2 to run standalone with no outside network connections. It makes use of a Virtual Network Computing interface to share a the container's desktop GUI with the outside world. In this case your browser! 
-
-Ensure Docker or Docker Desktop is installed on your machine
-
-First your will need to clone this project somewhere (doesn't need to be in a ros2 workspace)
-
-```
-git clone https://github.com/ucl-delta/project_gazebo_aruco.git
-```
-
-To build and/or run the container run the script
-
-This container is based on Ubuntu 22.04, ROS2 Humble and Ignition Gazebo Fortress
-
-```
-./docker/docker_vnc_start.bash
-```
-
-After building for a while, this will say that it has started the VNC server.
-
-> Note in some instances, the first time you build it it may time out. Run it again and it should finish its build. 
-
-Go into a browser and navigate to `https://127.0.0.1:6080` and press `connect`. This will drop you into an ubunut22.04 desktop environment with all the things you need! 
-
-The container will have live mounted this project into `/ros2/project_gazebo_aruco` so that any changes made to this repository outside of the container will be reflected inside. 
-
-Open up a terminal (`terminator`) and navigate to `/ros2/project_gazebo_aruco` to run the example. 
-
-```
-cd /ros2/project_gazebo_aruco
-./launch_as2.bash -s -t
-```
-
-> Note that you can utilise a GPU if you install the `nvidia-container-toolkit`. Pass the `-nvidia` argument to `docker_vnc_start.bash` when running the vnc. 
 
 
 
