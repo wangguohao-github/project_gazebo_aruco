@@ -13,6 +13,7 @@ There are three ways you can run this project depending on your situation or ope
 - Max OSX: TBC
 - 
 ## Linux users
+If you are a Linux user, you will have two options to set up your project, i.e. Local or Docker.
 
 ### Local
 
