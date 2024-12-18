@@ -19,7 +19,7 @@ If you are a Linux user, you will have two options to set up your project, i.e. 
 
 Install Ubuntu 22.04, ROS2 Humble, Ignition Gazebo Fortress as per their instructions.
 
-#### Installing Ubuntu 22.04
+#### 1. Installing Ubuntu 22.04
 
 Your options are 
 
@@ -43,7 +43,7 @@ Once you have a virtual machine setup, you can simply start it.
 
 > Note: Since this project uses gazebo and is not the lightest workioad, you may want to give the VM more resources i.e. CPU, RAM and potetially video memory too. You can do this in the virtual machine settings. 
 
-#### Installing ROS2 Humble
+#### 2. Installing ROS2 Humble
 
 For this project we will be using ROS2 Humble. Full installation instructions are [here](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html). But in short:
 
@@ -76,7 +76,7 @@ sudo apt install ros-dev-tools
 echo 'source ~/opt/ros/huble/setup.bash' >> $HOME/.bashrc
 ```
 
-#### Installing Ignition Gazebo Fortress
+#### 3. Installing Ignition Gazebo Fortress
 
 The recommended compatible gazebo version for Ubuntu 22.04 and Humble is Fortress where installation instructions are [here](https://gazebosim.org/docs/fortress/install_ubuntu). But in short:
 
@@ -94,7 +94,7 @@ You can check succesful installation by using the `ign` cli command or `gz` cli 
 With these three installed, you should be ready to run the sample gazebo aruco simulation
 
 
-#### Setup and build Aerostack2 (we use version 1.1.2)
+#### 4. Setup and build Aerostack2 (we use version 1.1.2)
 In your home directory (could be anywhere else but all the paths below are for your home directory)
 
 ```
@@ -135,7 +135,7 @@ as2 build
 
 Now as2 should be installed.
 
-#### Setup this project
+#### 5. Setup this project
 
 Get this project locally
 
