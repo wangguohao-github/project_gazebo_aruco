@@ -11,7 +11,7 @@ There are three ways you can run this project depending on your situation or ope
 - Linux: All 2 ways (Local and Docker) will work
 - Windows: Boot from an external SSD provided by us
 - Max OSX: TBC
-- 
+
 ## Linux users
 If you are a Linux user, you will have two options to set up your project, i.e. Local or Docker.
 
