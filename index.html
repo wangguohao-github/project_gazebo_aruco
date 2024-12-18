@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Aerostack2 with Aruco Marker Detection in Gazebo/PX4" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Aruco Autonomous Drones</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="kbd.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Autonomous Drones with Aruco Markers";
+        var mkdocs_page_input_path = "README.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> Aruco Autonomous Drones
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Building Drone</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="drone/drone_basics/">Introduction to Drones</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="drone/build_qav250_exercise/">QAV250 Build Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Simulation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="simulation/intro_to_linux/">A Brief Introduction to Linux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="simulation/intro_ros2_uav/">Intro to ROS2 and UAVs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="simulation/installation/">Project Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="simulation/example/">Example Scenario</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Aruco Autonomous Drones</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Autonomous Drones with Aruco Markers</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/ucl-delta/project_gazebo_aruco/edit/master/docs/README.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="autonomous-drones-with-aruco-markers">Autonomous Drones with Aruco Markers<a class="headerlink" href="#autonomous-drones-with-aruco-markers" title="Permanent link">&para;</a></h1>
+<p>Welcome to this tutorial in which we aim to fly both a real and simulated drone around some aruco markers! </p>
+<p>This tutorial is designed for the 24-25 COMP0240 Aerial Robotics: Fundamentals to Practice in Real-World Environments. </p>
+<h2 id="contents">Contents<a class="headerlink" href="#contents" title="Permanent link">&para;</a></h2>
+<p>In this tutorial, we will be attempting the following:</p>
+<ol>
+<li>An introduction to drones, the parts of a drone and how to build one. </li>
+<li>Drone control and the system architectures for drone flight</li>
+<li>Simulating drone flight and the software architectures used</li>
+<li>Detecing ARUCO Fiducial markers in real time </li>
+<li>Autonomously flying a drone around ARUCO markers in simulation</li>
+<li>Autonomously flying a drone around ARUCO markers in reality</li>
+</ol>
+<h2 id="contact">Contact<a class="headerlink" href="#contact" title="Permanent link">&para;</a></h2>
+<p>This project is developed by the following people:</p>
+<ul>
+<li>Mickey Li - <a href="mickey.li@ucl.ac.uk">email</a></li>
+<li>Chris Bendowski</li>
+<li>Vijay Pawar</li>
+<li>Guohao Wang</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright &copy; 2024 University College London AML Lab</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/ucl-delta/project_gazebo_aruco" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.6.1
+Build Date UTC : 2024-12-18 11:44:23.046106+00:00
+-->

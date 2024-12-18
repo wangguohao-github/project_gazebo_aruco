@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="../../img/favicon.ico" rel="shortcut icon"/>
+<title>Introduction to Drones - Aruco Autonomous Drones</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../../kbd.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Introduction to Drones";
+        var mkdocs_page_input_path = "drone/drone_basics.md";
+        var mkdocs_page_url = null;
+      </script>
+<!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href="../.."> Aruco Autonomous Drones
+        </a><div role="search">
+<form action="../../search.html" class="wy-form" id="rtd-search-form" method="get">
+<input aria-label="Search docs" name="q" placeholder="Search docs" title="Type search term here" type="text"/>
+</form>
+</div>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Building Drone</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction to Drones</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-uav-or-a-drone">1.1 What is a UAV or a Drone</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#types-of-drones">1.2 Types of Drones</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#piloting-drones">1.3 Piloting Drones</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parts-of-a-drone">1.4 Parts of a drone</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../build_qav250_exercise/">QAV250 Build Guide</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Simulation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/intro_to_linux/">A Brief Introduction to Linux</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/intro_ros2_uav/">Intro to ROS2 and UAVs</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/installation/">Project Installation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simulation/example/">Example Scenario</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="../..">Aruco Autonomous Drones</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href="../.."></a></li>
+<li class="breadcrumb-item">Building Drone</li>
+<li class="breadcrumb-item active">Introduction to Drones</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/ucl-delta/project_gazebo_aruco/edit/master/docs/drone/drone_basics.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="introduction-to-drone-systems"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introduction to Drone Systems<a class="headerlink" href="#introduction-to-drone-systems" title="Permanent link">¶</a></h1>
+<p>This tutorial page gives you a brief overview of a drone system and the physical and software components that make up a drone system </p>
+<div class="toc">
+<ul>
+<li><a href="#introduction-to-drone-systems">1. Introduction to Drone Systems</a><ul>
+<li><a href="#what-is-a-uav-or-a-drone">1.1 What is a UAV or a Drone</a></li>
+<li><a href="#types-of-drones">1.2 Types of Drones</a></li>
+<li><a href="#piloting-drones">1.3 Piloting Drones</a></li>
+<li><a href="#parts-of-a-drone">1.4 Parts of a drone</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="what-is-a-uav-or-a-drone"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> What is a UAV or a Drone<a class="headerlink" href="#what-is-a-uav-or-a-drone" title="Permanent link">¶</a></h2>
+<p>A drone or unmanned aerial vehicle (UAV) is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.</p>
+<p>Drones are used for many consumer, industrial, government and military applications (opens new window). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.</p>
+<blockquote>
+<p>Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).</p>
+</blockquote>
+<p>The "brain" of the drone is called an <em>autopilot</em>. It consists of flight stack software running on vehicle controller ("flight controller") hardware.</p>
+<p>A <em>multi-rotor</em> is a specific type of UAV which uses two of more lift-generating rotors to fly. One of the most common will be the Quadrotor which has 4 motors in an 'X' pattern. These UAVs provide much simpler flight control than other types of aerial vehicle. This tutorial focuses on the flight of a simple quadrotor, but Starling can be used to operate many different types of robot.</p>
+<blockquote>
+<p>From this point on in this tutorial, 'drone' or 'UAV' will refer to a multi-rotor UAV unless otherwise stated.</p>
+</blockquote>
+<h2 id="types-of-drones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Types of Drones<a class="headerlink" href="#types-of-drones" title="Permanent link">¶</a></h2>
+<p>These drones are used for many purposes, most notably in photography and education. Another type are fixed-wing drones, which resemble miniature airplanes and excel in long-range missions and mapping tasks. A third type are hybrid drones which combine the features of multirotor and fixed-wing drones, offering more versatility and extended flight time. Each drone type has its advantages and is suited to specific applications and operational requirements.</p>
+<h2 id="piloting-drones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Piloting Drones<a class="headerlink" href="#piloting-drones" title="Permanent link">¶</a></h2>
+<p>Piloting drones takes a bit of practice, but it’s accessible enough that even kids can do it! The controller or joystick helps you to navigate your drone where you want it to go. Once airborne, there are four basic movements of drone flight that need to be mastered:</p>
+<ul>
+<li>Throttle – vertical movement (up and down), sometimes called altitude. </li>
+<li>Yaw – rotation from left to right</li>
+<li>Pitch – backward and forward movement</li>
+<li>Roll – left to right movement without rotation</li>
+</ul>
+<p><img alt="Drone control basics" src="../images/drone_control.png"/></p>
+<p>Once you get used to the terminology and the orientation of the drone, the sky is the literal limit!</p>
+<p>Note that in more complicated systems such as the one we use today there are other modes to! The Yaw, Pitch, Roll above describes the attitude of the vehicle. Acrobatic and FPV drones usually operate on attitude rates, where the controller gives Pitch rates or yaw rates. This is desirable as it gives the feeling of immediate reaction to controls - although that does mean you have to actively stabilise the drone yourself. </p>
+<p>On the other side, even higher level control methods exist which translte attitude to cartesian x,y,z frames. Often drones end up being either velocity controlled or position controlled. The benefits of these higher level control is that you can command them to go to places relative to other things. The only downside is that the drone needs to know where it is in relation to the world - either using GPS, indoor positioning or onboard SLAM (simultaneous localisation and mapping) solutions. </p>
+<h2 id="parts-of-a-drone"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Parts of a drone<a class="headerlink" href="#parts-of-a-drone" title="Permanent link">¶</a></h2>
+<p><img alt="Drone Parts" src="../images/drone_parts.png"/></p>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-right" href="../build_qav250_exercise/" title="QAV250 Build Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+<p>Copyright © 2024 University College London AML Lab</p>
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/ucl-delta/project_gazebo_aruco" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../build_qav250_exercise/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "../..";</script>
+<script src="../../js/theme_extra.js"></script>
+<script src="../../js/theme.js"></script>
+<script src="../../search/main.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+</body>
+</html>
