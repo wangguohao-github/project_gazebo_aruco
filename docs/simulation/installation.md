@@ -186,7 +186,7 @@ cd /ros2/project_gazebo_aruco
 
 
 ## For Windows users
-If you are a windows user, follow the following instructions.
+If you are a windows user, you will be given a external hard drive which contains the confirgured environment. What remains to do for you is to figure out how to boot your computer from the provided hard drive. It normally requires you to go to bios mode to set the order of booting. Different brands of computers have different way of getting into bios. For example, for dell computer, you could access the BIOS/UEFI settings by restarting your computer and pressing the F2 key repeatedly as soon as the Dell logo appears. Search the instructions specific with your brands of computer.
 
 
 ## For Mac users
